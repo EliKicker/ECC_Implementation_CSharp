@@ -1,0 +1,14 @@
+C:\Users\User\source\repos\ECC-Implementation\ECC-Implementation\bin\Debug\netcoreapp3.1\ECC-Implementation.exe
+C:\Users\User\source\repos\ECC-Implementation\ECC-Implementation\bin\Debug\netcoreapp3.1\ECC-Implementation.deps.json
+C:\Users\User\source\repos\ECC-Implementation\ECC-Implementation\bin\Debug\netcoreapp3.1\ECC-Implementation.runtimeconfig.json
+C:\Users\User\source\repos\ECC-Implementation\ECC-Implementation\bin\Debug\netcoreapp3.1\ECC-Implementation.runtimeconfig.dev.json
+C:\Users\User\source\repos\ECC-Implementation\ECC-Implementation\bin\Debug\netcoreapp3.1\ECC-Implementation.dll
+C:\Users\User\source\repos\ECC-Implementation\ECC-Implementation\bin\Debug\netcoreapp3.1\ECC-Implementation.pdb
+C:\Users\User\source\repos\ECC-Implementation\ECC-Implementation\obj\Debug\netcoreapp3.1\ECC-Implementation.csproj.AssemblyReference.cache
+C:\Users\User\source\repos\ECC-Implementation\ECC-Implementation\obj\Debug\netcoreapp3.1\ECC-Implementation.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\User\source\repos\ECC-Implementation\ECC-Implementation\obj\Debug\netcoreapp3.1\ECC-Implementation.AssemblyInfoInputs.cache
+C:\Users\User\source\repos\ECC-Implementation\ECC-Implementation\obj\Debug\netcoreapp3.1\ECC-Implementation.AssemblyInfo.cs
+C:\Users\User\source\repos\ECC-Implementation\ECC-Implementation\obj\Debug\netcoreapp3.1\ECC-Implementation.csproj.CoreCompileInputs.cache
+C:\Users\User\source\repos\ECC-Implementation\ECC-Implementation\obj\Debug\netcoreapp3.1\ECC-Implementation.dll
+C:\Users\User\source\repos\ECC-Implementation\ECC-Implementation\obj\Debug\netcoreapp3.1\ECC-Implementation.pdb
+C:\Users\User\source\repos\ECC-Implementation\ECC-Implementation\obj\Debug\netcoreapp3.1\ECC-Implementation.genruntimeconfig.cache
