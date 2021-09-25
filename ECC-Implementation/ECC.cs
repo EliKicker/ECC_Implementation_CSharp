@@ -1,15 +1,13 @@
 ﻿using ECC_Implementation.encryptionmethods;
 using System;
-using System.Collections.Generic;
 using System.Numerics;
-using System.Text;
 
 namespace ECC_Implementation
 {
     class ECC
     {
 
-        BigInteger p, a, b, Gx, Gy, n, h;
+        private static BigInteger p, a, b, Gx, Gy, n, h;
 
         public ECC(EncryptionMethod m)
         {
@@ -34,7 +32,7 @@ namespace ECC_Implementation
             output[2] = P[1];
             return output;
         }
-
+        
         private BigInteger genPrivateKey()
         {
             Random r = new Random();
@@ -48,30 +46,33 @@ namespace ECC_Implementation
             return Euklidian_mod(BigInteger.Add(output, min), p);
         }
 
-        public BigInteger[] point_mult(BigInteger private_key, BigInteger[] G)
+        public static BigInteger[] point_mult(BigInteger private_key, BigInteger[] G)
         {
             BigInteger[] res = null;
-            List<int> i = new List<int>();
-            var s = ToBinaryString(private_key);
+            int iterations = 0;
+            BigInteger bits = BigInteger.Zero;
 
-            for (int j = 0; j < s.Length; j++)
+            while (private_key.CompareTo(BigInteger.Zero) != 0)
             {
-                i.Add(int.Parse(s[j].ToString()));
+                bits <<= 1;
+                bits |= (private_key & 1);
+                private_key >>= 1;
+                iterations++;
             }
-            
-            foreach (int bit in i)
+
+            for (int i = 0; i < iterations; i++)
             {
                 res = point_add(res, res);
-                
-                if (bit == 1)
+                if ((bits & 1).CompareTo(BigInteger.One) == 0)
                 {
                     res = point_add(res, G);
                 }
+                bits >>= 1;
             }
             return res;
         }
 
-        private BigInteger[] point_add(BigInteger[] P1, BigInteger[] P2)
+        private static BigInteger[] point_add(BigInteger[] P1, BigInteger[] P2)
         {
             if (P1 == null)
             {
@@ -110,33 +111,7 @@ namespace ECC_Implementation
             return output;
         }
 
-        private string ToBinaryString(BigInteger num)
-        {
-            StringBuilder output = new StringBuilder();
-            int i = 0;
-            BigInteger TWO = BigInteger.Parse("2");
-
-            while (num.CompareTo(BigInteger.Zero) > 0)
-            {
-                if (BigInteger.ModPow(num, 1, 2).CompareTo(BigInteger.One) == 0)
-                {
-                    output.Append("1");
-                    num = BigInteger.Divide(BigInteger.Subtract(num, BigInteger.One), TWO);
-                }
-                else
-                {
-                    output.Append("0");
-                    num = BigInteger.Divide(num, TWO);
-                }
-                i++;
-            }
-
-            char[] chrs = output.ToString().ToCharArray();
-            Array.Reverse(chrs);
-            return new string(chrs);
-        }
-
-        private BigInteger Euklidian_mod(BigInteger a, BigInteger b)
+        private static BigInteger Euklidian_mod(BigInteger a, BigInteger b)
         {
             BigInteger m = BigInteger.ModPow(a, 1, b);
 
@@ -147,7 +122,7 @@ namespace ECC_Implementation
             return m;
         }
 
-        private BigInteger[] mod_inv(BigInteger a, BigInteger b)
+        private static BigInteger[] mod_inv(BigInteger a, BigInteger b)
         {
             if (b.CompareTo(BigInteger.Zero) == 0) return new BigInteger[]
             {
